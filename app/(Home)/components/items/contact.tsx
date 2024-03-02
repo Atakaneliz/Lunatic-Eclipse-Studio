@@ -26,24 +26,30 @@ export default function ContactUs() {
         <p>Stay connected with us on social media too:</p>
         <ul className="flex items-center gap-10 mt-10">
           <li>
-            <a target="_blank" href="https://www.instagram.com/lunaticeclipse/">
+            <a
+              target="_blank"
+              href="https://www.instagram.com/lunaticeclipsestudio/"
+            >
               <FaInstagram className="w-6 h-6 hover:scale-125 transition-all duration-200" />
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://twitter.com/LunaticEclipse">
+            <a target="_blank" href="https://twitter.com/LunaticE_Studio">
               <FaTwitter className="w-6 h-6 hover:scale-125 transition-all duration-200" />
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://www.facebook.com/LunaticEclipse">
+            <a
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=61556082737671"
+            >
               <FaFacebookF className="w-6 h-6 hover:scale-125 transition-all duration-200" />
             </a>
           </li>
           <li>
             <a
               target="_blank"
-              href="https://www.youtube.com/channel/UC7f2KXk2t7zvDyD9v4e4zVw"
+              href="https://www.youtube.com/@LunaticEclipseStudio"
             >
               <FaYoutube className="w-6 h-6 hover:scale-125 transition-all duration-200" />
             </a>
@@ -51,7 +57,7 @@ export default function ContactUs() {
           <li>
             <a
               target="_blank"
-              href="https://www.linkedin.com/company/lunaticeclipse"
+              href="https://www.linkedin.com/company/lunatic-eclipse-studio"
             >
               <FaLinkedinIn className="w-6 h-6 hover:scale-125 transition-all duration-200" />
             </a>
