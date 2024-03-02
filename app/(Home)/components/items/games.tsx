@@ -1,9 +1,33 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaSteam } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+const sliderItems = [
+  {
+    path: "/WebSite/WebLoop1.png",
+  },
+
+  {
+    path: "/WebSite/WebLoop2.jpg",
+  },
+
+  {
+    path: "/WebSite/WebLoop3.jpg",
+  },
+];
 export default function Games() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % sliderItems.length);
+    }, 5000); // Change the duration (in milliseconds) to adjust the slide interval
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
       <div
@@ -29,6 +53,26 @@ export default function Games() {
               Cursed Despair is a psychological horror game designed for 2-4
               players.
             </motion.p>
+            <div className="w-full h-full flex flex-col p-2 md:hidden">
+              <div className="w-full h-full flex flex-col p-2 min-h-[200px] relative">
+                {sliderItems.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: currentSlide === index ? 1 : 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full h-full absolute top-0 left-0 "
+                  >
+                    <Image
+                      src={item.path}
+                      alt={`Slide ${index + 1}`}
+                      fill
+                      className="object-contain object-center rounded-xl"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
             <motion.p
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -57,7 +101,26 @@ export default function Games() {
               View on Steam
             </Link>
           </div>
-          <div className="w-full h-full flex flex-col p-2 "></div>
+          <div className="w-full h-full flex-col p-2 hidden md:flex ">
+            <div className="w-full h-full min-h-[500px] flex flex-col p-2 relative">
+              {sliderItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: currentSlide === index ? 1 : 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full h-full absolute top-0 left-0"
+                >
+                  <Image
+                    src={item.path}
+                    alt={`Slide ${index + 1}`}
+                    fill
+                    className="object-contain object-center rounded-xl"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </>

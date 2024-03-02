@@ -1,8 +1,11 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
+  const router = useRouter();
   return (
     <div
       id="dashboard"
@@ -35,6 +38,7 @@ export default function Dashboard() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
+            onClick={() => router.push("/#about")}
             className="p-4 px-10 md:p-10 md:px-20 text-center border w-full border-[#f5f5f5] rounded shadow text-[#f5f5f5] "
           >
             About Us
@@ -44,6 +48,7 @@ export default function Dashboard() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
+            onClick={() => router.push("/#games")}
             className="p-4 px-10 md:p-10 md:px-20 text-center border w-full border-[#f5f5f5] rounded shadow bg-[#f5f5f5]"
           >
             Our Games
