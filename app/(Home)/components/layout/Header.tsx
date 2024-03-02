@@ -16,7 +16,7 @@ export default function Navbar() {
   // w-[185px] h-[80px] bg-[#d9d9d9] shadow rounded items-center justify-center
   return (
     <>
-      <header className="w-full  p-2 sm:p-4 lg:p-10 flex items-center justify-between  fixed">
+      <header className="w-full  p-2 sm:p-4 lg:p-10 flex items-center justify-between  fixed z-10">
         <div className="flex gap-1 items-center">
           <Image
             src="/logo.png"

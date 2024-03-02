@@ -8,7 +8,7 @@ export default function About() {
       className="w-full h-full flex min-h-screen items-center p-4 lg:p-10"
     >
       <div className="w-full h-full gap-3 flex flex-col items-center justify-center">
-        <h1 className="text-4xl text-[#f5f5f5] w-full font-medium">
+        <h1 className="text-4xl text-[#f5f5f5] w-full font-medium tracking-widest">
           Welcome to Lunatic Eclipse Studio!
         </h1>
         <p className="text-[#f5f5f5] w-full mt-16">

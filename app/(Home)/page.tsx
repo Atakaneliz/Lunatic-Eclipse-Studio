@@ -2,6 +2,7 @@ import Image from "next/image";
 import Dashboard from "./components/items/dashboard";
 import About from "./components/items/about";
 import Games from "./components/items/games";
+import ContactUs from "./components/items/contact";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Image src="/banner.png" fill alt="banner" />
       </div>
       <Games />
+      <ContactUs />
     </main>
   );
 }
