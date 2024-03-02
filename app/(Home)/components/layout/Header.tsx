@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-
+import { CiMenuBurger } from "react-icons/ci";
 let tabs = [
   { id: "dashboard", label: "Home" },
   { id: "about", label: "About" },
@@ -33,7 +33,7 @@ export default function Navbar() {
               Lunatic Eclipse Studio
             </h1>
           </div>
-          <nav>
+          <nav className="hidden md:block">
             <ul className="flex w-full gap-5 items-center">
               {tabs.map((tab) => (
                 <li className="" key={tab.id}>
@@ -66,6 +66,9 @@ export default function Navbar() {
               ))}
             </ul>
           </nav>
+          <button className={`md:hidden`}>
+            <CiMenuBurger className="w-8 h-8 text-white" />
+          </button>
         </header>
       </div>
     </>
