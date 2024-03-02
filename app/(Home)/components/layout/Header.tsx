@@ -17,6 +17,7 @@ export default function Navbar() {
 
   return (
     <>
+      <div className="h-24"></div>
       <div className="flex flex-col items-center w-full relative">
         <header className="w-full p-4 top-5 rounded shadow flex items-center justify-between  fixed z-10 max-w-screen-2xl bg-black/10 backdrop-blur h-20">
           <div className="flex gap-1 items-center">
