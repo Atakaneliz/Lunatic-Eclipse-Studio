@@ -81,7 +81,7 @@ export default function Navbar() {
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: open ? 0 : "100%" }}
-          className={`fixed right-0 top-0 h-full bg-black/50 backdrop-blur z-40 w-full`}
+          className={`fixed right-0 top-0 h-full bg-black/50 backdrop-blur z-40 w-full md:hidden`}
         >
           <button
             onClick={() => {
