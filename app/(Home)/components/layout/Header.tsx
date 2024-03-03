@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
 let tabs = [
   { id: "dashboard", label: "Home" },
   { id: "about", label: "About" },
@@ -14,6 +15,7 @@ let tabs = [
 
 export default function Navbar() {
   let [activeTab, setActiveTab] = useState(tabs[0].id);
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -67,10 +69,63 @@ export default function Navbar() {
               ))}
             </ul>
           </nav>
-          <button className={`md:hidden`}>
+          <button
+            className={`md:hidden z-50`}
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
             <CiMenuBurger className="w-8 h-8 text-white" />
           </button>
         </header>
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: open ? 0 : "100%" }}
+          className={`fixed right-0 top-0 h-full bg-black/50 backdrop-blur z-40 w-full`}
+        >
+          <button
+            onClick={() => {
+              setOpen(false);
+            }}
+            className="w-full flex justify-end text-xl p-4 text-white"
+          >
+            X
+          </button>
+          <ul className="flex flex-col w-full gap-5 items-center justify-center h-full">
+            {tabs.map((tab) => (
+              <li className="" key={tab.id}>
+                <Link href={`#${tab.id}`} passHref>
+                  <button
+                    onClick={() => {
+                      setActiveTab(tab.id);
+                      setOpen(false);
+                    }}
+                    className={`${
+                      activeTab === tab.id ? "" : "hover:text-white/60"
+                    } relative rounded-sm px-3 py-1.5 text-sm font-medium text-white outline-sky-400 transition focus-visible:outline-2 w-[125px] h-[50px]`}
+                    style={{
+                      WebkitTapHighlightColor: "transparent",
+                    }}
+                  >
+                    {activeTab === tab.id && (
+                      <motion.span
+                        layoutId="bubble"
+                        className="absolute  inset-0 z-10 bg-white mix-blend-difference w-[125px] h-[50px]"
+                        style={{ borderRadius: 10 }}
+                        transition={{
+                          type: "spring",
+                          bounce: 0.2,
+                          duration: 0.6,
+                        }}
+                      />
+                    )}
+                    {tab.label}
+                  </button>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </div>
     </>
   );

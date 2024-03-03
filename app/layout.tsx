@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "./(Home)/components/layout/Header";
+import LoaderProvider from "./(Home)/components/layout/LoaderProvider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -16,18 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${montserrat.className} `}>
-        <video
-          autoPlay
-          muted
-          loop
-          id="myVideo"
-          className="w-full h-full -z-10 fixed left-0 top-0 object-center object-cover "
-        >
-          <source src="/WebSite/Webarkaplan.mp4" type="video/mp4" />
-        </video>
-        <Navbar />
-        {children}
+      <body className={`${montserrat.className} bg-black`}>
+        <LoaderProvider>
+          <Navbar />
+          {children}
+        </LoaderProvider>
       </body>
     </html>
   );

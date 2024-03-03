@@ -12,7 +12,7 @@ export default function Dashboard() {
       className="w-full h-full flex flex-col xl:flex-row min-h-screen items-center justify-center p-4 lg:p-10 gap-5"
     >
       <div className="flex flex-col w-full h-full items-center justify-center">
-        <div className=" w-[300px] h-[300px] md:w-[600px] md:h-[600px] lg:w-[720px] lg:h-[720px] flex flex-col items-center justify-center bg-[url(/WebF.gif)] border-2 rounded-xl shadow border-[#404040] "></div>
+        <div className=" w-[300px] h-[300px] md:w-[600px] md:h-[600px] lg:w-[720px] lg:h-[720px] flex flex-col items-center justify-center bg-[url(/WebF.gif)] border-2 rounded-xl shadow border-[#404040] bg-center bg-contain "></div>
       </div>
       <div className="w-full h-full gap-5 flex flex-col items-center justify-center p-4">
         <motion.h1
