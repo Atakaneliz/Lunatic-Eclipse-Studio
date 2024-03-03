@@ -9,6 +9,14 @@ export default function LoaderProvider({
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
 
+  useEffect(() => {
+    const video = document.getElementById("video") as HTMLVideoElement;
+    if (!video) return;
+    video.oncanplay = () => {
+      setLoading(false);
+    };
+  }, []);
+
   return (
     <>
       {loading && (
@@ -36,7 +44,6 @@ export default function LoaderProvider({
         autoPlay
         muted
         loop
-        onCanPlay={() => setLoading(false)}
         className="w-full h-full -z-10 fixed left-0 top-0 object-center object-cover "
       >
         <source src="/WebSite/Webarkaplan.mp4" type="video/mp4" />
