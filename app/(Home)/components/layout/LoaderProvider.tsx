@@ -46,7 +46,7 @@ export default function LoaderProvider({
         loop
         className="w-full h-full -z-10 fixed left-0 top-0 object-center object-cover "
       >
-        <source src="/WebSite/Webarkaplan.mp4" type="video/mp4" />
+        <source src="/WebSite/WebArkaplan.mp4" type="video/mp4" />
       </video>
       {children}
       {loading && <p>Progress: {progress}%</p>}
